@@ -1,0 +1,352 @@
+/**
+ * ALTER TABLE `combate` 
+ *   add CONSTRAINT fk_objetoID FOREIGN KEY (`objetoID_fk`) REFERENCES `objeto`(`objetoID`),
+ *   add CONSTRAINT fk_poderID FOREIGN KEY (`poderID_fk`) REFERENCES `poder`(`poderID`),
+ *   add CONSTRAINT fk_lugarID FOREIGN KEY (`combateLugar`) REFERENCES `lugar`(`lugarID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "combate" para las columnas objetoID_fk,
+ * poderID_fk y combateLugar, haciendo referencia a las tablas objeto, poder y lugar respectivamente.
+ */
+
+/**
+ * ALTER TABLE `heroeVillanoCivil` 
+ *   add CONSTRAINT fk_persHeroe FOREIGN KEY (`persHeroeID_fk`) REFERENCES `persHeroe`(`persHeroeID`),
+ *   add CONSTRAINT fk_persVillano FOREIGN KEY (`persCivilID_fk`) REFERENCES `persVillano`(`persVillanoID`),
+ *   add CONSTRAINT fk_persCivil FOREIGN KEY (`persVillanoID_fk`) REFERENCES `persCivil`(`persCivilD`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "heroeVillanoCivil" para las columnas persHeroeID_fk,
+ * persCivilID_fk y persVillanoID_fk, haciendo referencia a las tablas persHeroe, persVillano y persCivil respectivamente.
+ */
+
+/**
+ * ALTER TABLE `heroeVillanoEnfrentados` 
+ *   add constraint fk_pershero FOREIGN KEY (`persHeroeID`) REFERENCES `persHeroe`(`persHeroeID`),
+ *   add constraint fk_persvillan FOREIGN KEY (`persVillanoID`) REFERENCES `persVillano`(`persVillanoID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "heroeVillanoEnfrentados" para las columnas persHeroeID
+ * y persVillanoID, haciendo referencia a la tabla persHeroe y persVillano respectivamente.
+ */
+
+/**
+ * ALTER TABLE `historial` 
+ *   add constraint fk_medi FOREIGN KEY (`medID`) REFERENCES `medio`(`medID`),
+ *   add constraint fk_perfil FOREIGN KEY (`usuEmail`,`perfilID`) REFERENCES `perfil`(`usuEmail_id`,`perfilID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "historial" para las columnas medID y usuEmail, perfilID,
+ * haciendo referencia a las tablas medio y perfil respectivamente.
+ */
+
+/**
+ * ALTER TABLE `medPais` 
+ *   add constraint fk_lugar FOREIGN KEY (`lugar_id`) REFERENCES `lugar`(`lugarID`),
+ *   add constraint fk_medo FOREIGN KEY (`med_id`) REFERENCES `medio`(`medID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "medPais" para las columnas lugar_id y med_id,
+ * haciendo referencia a las tablas lugar y medio respectivamente.
+ */
+
+/**
+ * ALTER TABLE `medVidPlatf` 
+ *   add constraint fk_medVidjID FOREIGN KEY (`medVid_id`) REFERENCES `medVideojuego`(`medVidjID`),
+ *   add constraint fk_plataforma FOREIGN KEY (`platf_id`) REFERENCES `plataforma`(`platfID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "medVidPlatf" para las columnas medVid_id y platf_id,
+ * haciendo referencia a las tablas medVideojuego y plataforma respectivamente.
+ */
+
+/**
+ * ALTER TABLE `miLista` 
+ *   add constraint fk_media FOREIGN KEY (`medID`) REFERENCES `medio`(`medID`),
+ *   add constraint fk_perfi FOREIGN KEY (`usuEmail`,`perfilID`) REFERENCES `perfil`(`usuEmail_id`,`perfilID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "miLista" para las columnas medID y usuEmail, perfilID,
+ * haciendo referencia a las tablas medio y perfil respectivamente.
+ */
+
+/**
+ * ALTER TABLE `objeto` 
+ *  add FOREIGN KEY (`objetoTipoFK`) REFERENCES `tipoObjeto`(`tipoObjetoID`)
+ * ;
+ *
+ * Descripción: Agrega la restricción de clave externa a la tabla "objeto" para la columna objetoTipoFK,
+ * haciendo referencia a la tabla tipoObjeto.
+ */
+
+/**
+ * ALTER TABLE `orgMed` 
+ *  add constraint fk_organizacion FOREIGN KEY (`org_id`) REFERENCES `organizacion`(`orgID`),
+ *  add constraint fk_med FOREIGN KEY (`med_id`) REFERENCES `medio`(`medID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "orgMed" para las columnas org_id y med_id,
+ * haciendo referencia a las tablas organizacion y medio respectivamente.
+ */
+
+/**
+ * ALTER TABLE `organizacion` 
+ *   add constraint fk_personaje FOREIGN KEY (`orgLiderMasConocido`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Descripción: Agrega la restricción de clave externa a la tabla "organizacion" para la columna orgLiderMasConocido,
+ * haciendo referencia a la tabla personaje.
+ */
+
+/**
+ * ALTER TABLE `perCargOrg` 
+ *   add constraint fk_organizacin FOREIGN KEY (`org_id`) REFERENCES `organizacion`(`orgID`),
+ *   add constraint fk_personae FOREIGN KEY (`personaje_id`) REFERENCES `personaje`(`personajeID`),
+ *   add constraint fk_cargo FOREIGN KEY (`cargo_id`) REFERENCES `cargo`(`cargoID`)
+ * ;  
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "perCargOrg" para las columnas org_id, personaje_id
+ * y cargo_id, haciendo referencia a las tablas organizacion, personaje y cargo respectivamente.
+ */
+
+/**
+ * ALTER TABLE `perMed` 
+ *   add constraint fk_Persnaje FOREIGN KEY (`med_id`) REFERENCES `personaje`(`personajeID`),
+ *   add constraint fk_me FOREIGN KEY ( `med_id`) REFERENCES `medio`(`medID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "perMed" para las columnas med_id,
+ * haciendo referencia a las tablas personaje y medio respectivamente.
+ */
+
+/**
+ * ALTER TABLE `perfil` 
+ *   add CONSTRAINT fK_usuario FOREIGN KEY (`usuEmail_id`) REFERENCES `usuario`(`usuEmail`)
+ * ;
+ *
+ * Descripción: Agrega la restricción de clave externa a la tabla "perfil" para la columna usuEmail_id,
+ * haciendo referencia a la tabla usuario.
+ */
+
+/**
+ * ALTER TABLE `persCivil` 
+ *   add constraint  fk_pernaje FOREIGN KEY (`id_personaje`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Des
+
+cripción: Agrega la restricción de clave externa a la tabla "persCivil" para la columna id_personaje,
+ * haciendo referencia a la tabla personaje.
+ */
+
+/**
+ * ALTER TABLE `persCreador` 
+ *   add FOREIGN KEY (`creadorID_fk`) REFERENCES `creador`(`creadorID`),
+ *   add FOREIGN KEY (`personajeID_fk`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "persCreador" para las columnas creadorID_fk
+ * y personajeID_fk, haciendo referencia a las tablas creador y personaje respectivamente.
+ */
+
+/**
+ * ALTER TABLE `persNacion`
+ *   add constraint fk_peonaje FOREIGN KEY (`personaje_id`) REFERENCES `personaje`(`personajeID`),
+ *   add constraint fk_nacionalidad FOREIGN KEY (`nacionalidad_id`) REFERENCES `nacionalidad`(`nacionalidadID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "persNacion" para las columnas personaje_id y nacionalidad_id,
+ * haciendo referencia a las tablas personaje y nacionalidad respectivamente.
+ */
+
+/**
+ * ALTER TABLE `persObjeto` 
+ *   add constraint fk_objeto FOREIGN KEY (`objeto_id`) REFERENCES `objeto`(`objetoID`),
+ *   add constraint fk_peraje FOREIGN KEY (`personaje_id`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "persObjeto" para las columnas objeto_id y personaje_id,
+ * haciendo referencia a las tablas objeto y personaje respectivamente.
+ */
+
+/**
+ * ALTER TABLE `persPoder` 
+ *   add constraint fk_poder FOREIGN KEY (`poderID`) REFERENCES `poder`(`poderID`),
+ *   add constraint fk_perse FOREIGN KEY (`personajeID`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "persPoder" para las columnas poderID y personajeID,
+ * haciendo referencia a las tablas poder y personaje respectivamente.
+ */
+
+/**
+ * ALTER TABLE `persVillano` 
+ *   add constraint  fk_psonaje FOREIGN KEY (`id_personaje`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Descripción: Agrega la restricción de clave externa a la tabla "persVillano" para la columna id_personaje,
+ * haciendo referencia a la tabla personaje.
+ */
+
+/**
+ * ALTER TABLE `persHeroe` 
+ *   add constraint  fk_psonaje2 FOREIGN KEY (`id_personaje`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Descripción: Agrega la restricción de clave externa a la tabla "persHeroe" para la columna id_personaje,
+ * haciendo referencia a la tabla personaje.
+ */
+
+/**
+ * ALTER TABLE `persOcupacion` 
+ *   add constraint fk_opacion FOREIGN KEY (`ocupacion_id`) REFERENCES `ocupacion`(`ocupacionID`),
+ *   add constraint fk_persDSonaje FOREIGN KEY (`personaje_id`) REFERENCES `personaje`(`personajeID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "persOcupacion" para las columnas ocupacion_id
+ * y personaje_id, haciendo referencia a las tablas ocupacion y personaje respectivamente.
+ */
+
+/**
+ * ALTER TABLE `rating` 
+ *   add constraint fk_perdil FOREIGN KEY (`usuEmail`,`perfil_id`) REFERENCES `perfil`(`usuEmail_id`, `perfilID`),
+ *   add constraint fk_meadio FOREIGN KEY (`med_id`) REFERENCES `medio`(`medID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "rating" para las columnas usuEmail, perfil_id y med_id,
+ * haciendo referencia a las tablas perfil y medio respectivamente.
+ */
+
+/**
+ * ALTER TABLE `recomendacion` 
+ *   add constraint fk_persdil FOREIGN KEY (`usuEmail`,`perfilID`) REFERENCES `perfil`(`usuEmail_id`, `perfilID`),
+ *   add constraint fk_mddedio FOREIGN KEY (`medID`) REFERENCES `medio`(`medID`)
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la tabla "recomendacion" para las columnas usuEmail, perfilID y medID,
+ * haciendo referencia a las tablas perfil y medio respectivamente.
+ */
+
+/**
+ * ALTER TABLE `sede` 
+ *   add constraint fk_organizasscion FOREIGN KEY (`org_id`) REFERENCES `organizacion`(`orgID`),
+ *   add CONSTRAINT CHK_SEDE_TIPO_EDIFICIO CHECK( `sedeTipoEdificacion`IN('Mansion' ,'Torre' , 'Cueva' , 'Casa' , 'Apartamento'))
+ * ;
+ *
+ * Descripción: Agrega las restricciones de clave externa a la
+
+Los fragmentos de código proporcionados contienen declaraciones de claves externas (foreign keys) en una serie de tablas. Estas declaraciones establecen relaciones entre las tablas y especifican las restricciones de integridad referencial para mantener la consistencia de los datos.
+
+Aquí está una descripción de cada declaración de clave externa:
+
+1. En la tabla "combate":
+   - `fk_objetoID`: Establece una relación entre la columna `objetoID_fk` de la tabla "combate" y la columna `objetoID` de la tabla "objeto".
+   - `fk_poderID`: Establece una relación entre la columna `poderID_fk` de la tabla "combate" y la columna `poderID` de la tabla "poder".
+   - `fk_lugarID`: Establece una relación entre la columna `combateLugar` de la tabla "combate" y la columna `lugarID` de la tabla "lugar".
+
+2. En la tabla "heroeVillanoCivil":
+   - `fk_persHeroe`: Establece una relación entre la columna `persHeroeID_fk` de la tabla "heroeVillanoCivil" y la columna `persHeroeID` de la tabla "persHeroe".
+   - `fk_persVillano`: Establece una relación entre la columna `persCivilID_fk` de la tabla "heroeVillanoCivil" y la columna `persVillanoID` de la tabla "persVillano".
+   - `fk_persCivil`: Establece una relación entre la columna `persVillanoID_fk` de la tabla "heroeVillanoCivil" y la columna `persCivilD` de la tabla "persCivil".
+
+3. En la tabla "heroeVillanoEnfrentados":
+   - `fk_pershero`: Establece una relación entre la columna `persHeroeID` de la tabla "heroeVillanoEnfrentados" y la columna `persHeroeID` de la tabla "persHeroe".
+   - `fk_persvillan`: Establece una relación entre la columna `persVillanoID` de la tabla "heroeVillanoEnfrentados" y la columna `persVillanoID` de la tabla "persVillano".
+
+4. En la tabla "historial":
+   - `fk_medi`: Establece una relación entre la columna `medID` de la tabla "historial" y la columna `medID` de la tabla "medio".
+   - `fk_perfil`: Establece una relación entre las columnas `usuEmail` y `perfilID` de la tabla "historial" y las columnas `usuEmail_id` y `perfilID` de la tabla "perfil".
+
+5. En la tabla "medPais":
+   - `fk_lugar`: Establece una relación entre la columna `lugar_id` de la tabla "medPais" y la columna `lugarID` de la tabla "lugar".
+   - `fk_medo`: Establece una relación entre la columna `med_id` de la tabla "medPais" y la columna `medID` de la tabla "medio".
+
+6. En la tabla "medVidPlatf":
+   - `fk_medVidjID`: Establece una relación entre la columna `medVid_id` de la tabla "medVidPlatf" y la columna `medVidjID` de la tabla "medVideojuego".
+   - `fk_plataforma`: Establece una relación entre la columna `platf_id` de la tabla "medVidPlatf" y la columna `platfID` de la tabla "plataforma".
+
+7. En la tabla "miLista":
+   - `fk_media`: Establece una relación entre la columna `medID` de la tabla "miLista" y la columna `medID` de la tabla "medio".
+   - `fk_perfi`: Establece una relación entre las columnas `usuEmail` y `perfilID` de la tabla "miLista" y las columnas `usuEmail_id` y `perfilID` de la tabla "perfil".
+
+8. En la tabla "objeto":
+   - `fk_objetoTipoFK`: Establece una relación entre la columna `objetoTipoFK` de la tabla "objeto" y la columna `tipoObjetoID` de la tabla "tipoObjeto".
+
+9. En la tabla "orgMed":
+   - `fk_organizacion`: Establece una relación entre la columna `org_id` de la tabla "orgMed" y la columna `orgID` de la tabla "organizacion".
+   - `fk_med`: Establece una relación entre la columna `med_id` de la tabla "orgMed" y la columna `medID` de la tabla "medio".
+
+10. En la tabla "organizacion":
+    - `fk_personaje`: Establece una relación entre la columna `orgLiderMasConocido` de la tabla "organizacion" y la columna `personajeID` de la tabla "personaje".
+
+11. En la tabla "perCargOrg":
+    - `fk_organizacin`: Establece una relación entre la columna `org_id` de la tabla "perCargOrg" y la columna `orgID` de la tabla "organizacion".
+    - `fk_personae`: Establece una relación entre la columna `personaje_id` de la tabla "perCargOrg" y la columna `personajeID` de la tabla "personaje".
+    - `fk_cargo`: Establece una relación entre la columna `cargo_id` de la tabla "perCargOrg" y la columna `cargoID` de la tabla "cargo".
+
+12. En la tabla "perMed":
+    - `fk_Persnaje`: Establece una relación entre la columna `med_id` de la tabla "perMed" y la columna `personajeID` de la tabla "personaje".
+    - `fk_me`: Establece una relación entre la columna `med_id` de la tabla "perMed" y la columna `medID` de la tabla "medio".
+
+13. En la tabla "perfil":
+    - `fK_usuario`: Establece una relación entre la columna `usuEmail_id` de la tabla "perfil" y la columna `usuEmail` de la tabla "usuario".
+
+14. En la tabla "persCivil":
+    - `fk_pernaje`: Establece una relación entre la columna `id_personaje` de la tabla "persCivil" y la columna `personajeID` de la tabla "personaje".
+
+15. En la tabla "persCreador":
+    - `FOREIGN KEY (creadorID_fk)`: Establece una relación entre la columna `creadorID_fk` de la tabla "persCreador" y la columna `creadorID` de la tabla "creador".
+    - `FOREIGN KEY (personajeID_fk)`: Establece una relación entre la columna `person
+
+ajeID_fk` de la tabla "persCreador" y la columna `personajeID` de la tabla "personaje".
+
+16. En la tabla "persNacion":
+    - `fk_peonaje`: Establece una relación entre la columna `personaje_id` de la tabla "persNacion" y la columna `personajeID` de la tabla "personaje".
+    - `fk_nacionalidad`: Establece una relación entre la columna `nacionalidad_id` de la tabla "persNacion" y la columna `nacionalidadID` de la tabla "nacionalidad".
+
+17. En la tabla "persObjeto":
+    - `fk_objeto`: Establece una relación entre la columna `objeto_id` de la tabla "persObjeto" y la columna `objetoID` de la tabla "objeto".
+    - `fk_peraje`: Establece una relación entre la columna `personaje_id` de la tabla "persObjeto" y la columna `personajeID` de la tabla "personaje".
+
+18. En la tabla "persPoder":
+    - `fk_poder`: Establece una relación entre la columna `poderID` de la tabla "persPoder" y la columna `poderID` de la tabla "poder".
+    - `fk_perse`: Establece una relación entre la columna `personajeID` de la tabla "persPoder" y la columna `personajeID` de la tabla "personaje".
+
+19. En la tabla "persVillano":
+    - `fk_psonaje`: Establece una relación entre la columna `id_personaje` de la tabla "persVillano" y la columna `personajeID` de la tabla "personaje".
+
+20. En la tabla "persHeroe":
+    - `fk_psonaje2`: Establece una relación entre la columna `id_personaje` de la tabla "persHeroe" y la columna `personajeID` de la tabla "personaje".
+
+21. En la tabla "persOcupacion":
+    - `fk_opacion`: Establece una relación entre la columna `ocupacion_id` de la tabla "persOcupacion" y la columna `ocupacionID` de la tabla "ocupacion".
+    - `fk_persDSonaje`: Establece una relación entre la columna `personaje_id` de la tabla "persOcupacion" y la columna `personajeID` de la tabla "personaje".
+
+22. En la tabla "rating":
+    - `fk_perdil`: Establece una relación entre las columnas `usuEmail` y `perfil_id` de la tabla "rating" y las columnas `usuEmail_id` y `perfilID` de la tabla "perfil".
+    - `fk_meadio`: Establece una relación entre la columna `med_id` de la tabla "rating" y la columna `medID` de la tabla "medio".
+
+23. En la tabla "recomendacion":
+    - `fk_persdil`: Establece una relación entre las columnas `usuEmail` y `perfilID` de la tabla "recomendacion" y las columnas `usuEmail_id` y `perfilID` de la tabla "perfil".
+    - `fk_mddedio`: Establece una relación entre la columna `medID` de la tabla "recomendacion" y la columna `medID` de la tabla "medio".
+
+24. En la tabla "sede":
+    - `fk_organizasscion`: Establece una relación entre la columna `org_id` de la tabla "sede" y la columna `orgID` de la tabla "organizacion".
+    - `CHK_SEDE_TIPO_EDIFICIO`: Define una restricción de verificación (CHECK) en la columna `sedeTipoEdificacion`,
+      permitiendo solo los valores 'Mansion', 'Torre', 'Cueva', 'Casa' y 'Apartamento'.
+
+25. En la tabla "trajeColor":
+    - `fk_persHeero`: Establece una relación entre la columna `persHeroe_id` de la tabla "trajeColor" y la columna `persHeroeID` de la tabla "persHeroe".
+    - `fk_color`: Establece una relación entre la columna `colorHEX_id` de la tabla "trajeColor" y la columna `colorHEX` de la tabla "color".
+
+26. En la tabla "medio":
+    - `fk_medio_medPelicula`: Establece una relación entre la columna `medPelicula` de la tabla "medio" y la columna `medPelID` de la tabla "medPelicula".
+    - `fk_medio_compannias`: Establece una relación entre la columna `companniaCreadProdID` de la tabla "medio" y la columna `companniaID` de la tabla "compannia".
+      Además, se especifica que en caso de eliminar una fila en la tabla "compannia", se establecerá el valor de la columna `companniaCreadProdID` en NULL,
+      y en caso de actualizar la columna `companniaID`, se actualizará la columna `companniaCreadProdID` en consecuencia.
+
+27. En la tabla "medPelicula":
+    - `fk_medPelicula_director`: Establece una relación entre la columna `medPelDirectorCI` de la tabla "medPelicula" y la columna `directorCI` de la tabla "director".
+      Además, se especifica que en caso de eliminar una fila en la tabla "director", se establecerá el valor de la columna `medPelDirectorCI` en NULL,
+      y en caso de actualizar la columna `directorCI`, se actualizará la columna `medPelDirectorCI` en consecuencia.
+

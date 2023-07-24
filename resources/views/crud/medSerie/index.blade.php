@@ -1,0 +1,44 @@
+@extends ('layouts.admin')
+@section ('contenido')
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>Listado de medSerie <a href="medSerie/create"><button class="btn btn-success">Nuevo</button></a></h3>
+        @include('crud.medSerie.search')
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-condensed table-hover">
+                <thead>
+                    <th>Id Serie</th>
+                    <th>Canal Transmision</th>
+                    <th>Creador Serie</th>
+                    <th>Tipo Serie</th>
+                    <th>Total episodios</th>
+                    <th>Opciones</th>
+                </thead>
+                @foreach ($medSeries as $ocu)
+                <tr>
+                    <td>{{$ocu->medSerID}}</td>
+                    <td>{{$ocu->medSerCanalTrans}}</td>
+                    <td>{{$ocu->medSerCreador}}</td>
+                    <td>{{$ocu->medSerTipo}}</td>
+                    <td>{{$ocu->medSerTotEps}}</td>
+                    <td>
+                        
+                        <a href="{{ route('medSerie.edit', $ocu->medSerID) }}"><button class="btn btn-info">Editar</button></a>
+                        <a href="" data-target="#modal-delete-{{$ocu->medSerID}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                    </td>
+                </tr>
+                @include('crud.medSerie.modal')
+                @endforeach
+            </table>
+        </div>
+        {{$medSeries->render()}}
+    </div>
+</div>
+
+@endsection
